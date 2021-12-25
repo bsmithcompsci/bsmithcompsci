@@ -6,6 +6,7 @@ I am Brandon Smith, a software engineer that specializes in build systems and ne
 [LinkedIn](https://www.linkedin.com/in/brandon-smith-compsci/)
 
 [![Github Stats](https://github-readme-stats.vercel.app/api?username=bsmithcompsci&show_icons=true)](https://github.com/bsmithcompsci)
+
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bsmithcompsci&langs_count=8)](https://github.com/bsmithcompsci)
 
 <!--
