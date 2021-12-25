@@ -10,6 +10,8 @@ I keep everything that I learn either on my github blog or in their respective r
 
 If you are interested with tinkering on things, you will enjoy some of my repositories. 😀
 
+<!-- ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> A little more about me...   -->
+
 ## 🛠 Tools and Environments
 
 ![](https://img.shields.io/badge/OS-Linux-informational?style=flat&logo=linux&logoColor=white&color=2bbc8a)
@@ -20,6 +22,7 @@ If you are interested with tinkering on things, you will enjoy some of my reposi
 ![](https://img.shields.io/badge/IaaS-Azure-informational?style=flat&logo=microsoft&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/IaaS-GCloud-informational?style=flat&logo=google&logoColor=white&color=2bbc8a)
 
+## 📈 Stats
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bsmithcompsci&langs_count=8)](https://github.com/bsmithcompsci)
 [![Github Stats](https://github-readme-stats.vercel.app/api?username=bsmithcompsci&show_icons=true)](https://github.com/bsmithcompsci)
 
