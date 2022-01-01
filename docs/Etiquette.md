@@ -57,7 +57,7 @@ void foo(int _myVar)
 **Member Variables**
 
 Member variables of structs, classes, and objects; all will start with `m_...`, the `m` standing for member.
-```
+```c++
 struct foo
 {
   int m_x;
@@ -274,5 +274,4 @@ A project that is meant to start and stop quickly just do demonstrate a skill, t
 
 ## Conclusion
 
-As we develop as programmers, software engineers, etc; we learn better ways to make our code to be read like a logical story. 
-Also knowing that everyone writes code in their own ways, it should be respected that as long as it can be read easily by all parties.
+As we develop as programmers, software engineers, etc; we learn better ways to make our code to be read like a logical story. Also knowing that everyone writes code in their own ways, it should be respected that as long as it can be read easily by all parties.
