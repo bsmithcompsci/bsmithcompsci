@@ -354,7 +354,7 @@ export default function Home() {
                 <div className="mb-4">
                     <div className="flex items-center gap-3 mb-2">
                     {experience.icon_logo && (
-                      <div className="relative h-8 w-8 shrink-0">
+                      <div className="relative h-15 w-15 shrink-0">
                         <Image
                           src={experience.icon_logo}
                           alt={`${experience.company} logo`}
@@ -397,6 +397,7 @@ export default function Home() {
                         {project.description && (
                           <p className="text-gray-700 mb-3">{project.description}</p>
                         )}
+                        {/* Jobs within Project */}
                         {project.jobs && project.jobs.length > 0 && (
                           <div className="mt-4 space-y-3 ml-4">
                           {project.jobs.map((job: Job, jobIdx: number) => (
