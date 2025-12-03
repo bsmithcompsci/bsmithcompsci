@@ -36,6 +36,7 @@ jobs:
       - name: Copy static files
         run: |
           cp -r blogs/* static-site/.pages
+          cp profile.jsonc static-site/.pages/profile.jsonc
           ls -la static-site/.pages
 
       - name: Build with Next.js for latest
