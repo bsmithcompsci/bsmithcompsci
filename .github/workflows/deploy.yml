@@ -31,7 +31,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: cd static-site && npm ci
+        run: cd static-site && bun ci
 
       - name: Copy static files
         run: |
@@ -39,7 +39,7 @@ jobs:
           ls -la static-site/.pages
 
       - name: Build with Next.js for latest
-        run: cd static-site && npm run build
+        run: cd static-site && bun run build
         env:
           NODE_ENV: production
 
