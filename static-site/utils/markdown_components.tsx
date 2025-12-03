@@ -17,12 +17,14 @@ export const components: MDXRemoteProps["components"] = {
     em: (props) => <em className="italic text-gray-600" {...props} />,
     strong: (props) => <strong className="font-bold" {...props} />,
     blockquote: (props) => <blockquote className="border-l-4 border-blue-500 pl-4 italic my-4" {...props} />,
-    pre: (props) => (
-        <div className="relative group">
-            <pre className="bg-zinc-200 dark:bg-gray-800 rounded-lg p-4 my-4 overflow-x-auto" {...props} />
-            <div className="absolute top-1/2 right-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <ClipboardButton code={props.children.props.children} />
+    pre: (props) => {
+        return (
+            <div className="relative group">
+                <pre className="bg-zinc-200 dark:bg-gray-800 rounded-lg p-4 my-4 overflow-x-auto" {...props} />
+                <div className="absolute top-1/2 right-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ClipboardButton code={props.children.props.children} />
+                </div>
             </div>
-        </div>
-    ),
+        )
+    },
 };

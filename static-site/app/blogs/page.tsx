@@ -91,9 +91,9 @@ function createBlogDisplays(data: Map<string, string[]>): Map<string, BlogDispla
             return new BlogDisplay(
                 slug,
                 slug.replace(/\.md$/, '').replace(/(^|[\\\/])\d+_/g, '$1').replace(/[\\\/]index$/, ''),
-                data.title || slug.split('/').pop() || "Untitled",
+                data.title,
                 data.description || "This is a sample description for the blog post.",
-                data.date,
+                data.date || fs.statSync(filePath).ctime.toISOString().replace('.000Z', ''),
                 group,
                 subgroup
             );
@@ -127,7 +127,10 @@ export default function BlogsPage() {
             <h1 className="text-4xl font-bold text-center mb-12">Blogs</h1>
             
             {/* Categories Sections */}
-            {Array.from(blogDisplays.keys()).map(category => (
+            {Array.from(blogDisplays.keys()).filter(category => {
+                const blogsInCategory = blogDisplays.get(category)?.filter(blog => blog.title) || [];
+                return blogsInCategory.length > 0;
+            }).map(category => (
             <section id={category} key={category} className="mb-12">
                 <h4 className="text-2xl font-semibold mb-6 pb-3 border-b border-gray-300">
                     {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -136,7 +139,7 @@ export default function BlogsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Group blogs by group and subgroup */}
                     {(() => {
-                        const blogsInCategory = blogDisplays.get(category)?.filter(blog => blog.date) || [];
+                        const blogsInCategory = blogDisplays.get(category)?.filter(blog => blog.title) || [];
                         const grouped = new Map<string, Map<string | undefined, BlogDisplay[]>>();
                         
                         blogsInCategory.forEach(blog => {
@@ -154,7 +157,7 @@ export default function BlogsPage() {
 
                         {/* Render grouped blogs */}
                         return Array.from(grouped.entries()).map(([groupKey, subgroupMap]) => (
-                            <div key={groupKey} className="col-span-full">
+                            <div id={`${category}-${groupKey}`} key={groupKey} className="col-span-full">
                                 {groupKey !== 'ungrouped' && (
                                     <h5 className="text-xl font-semibold mb-4 text-gray-700">
                                         {groupKey.charAt(0).toUpperCase() + groupKey.slice(1)}
@@ -162,7 +165,7 @@ export default function BlogsPage() {
                                 )}
                                 {/* Render subgroups */}
                                 {Array.from(subgroupMap.entries()).map(([subgroupKey, groupBlogs]) => (
-                                    <div key={subgroupKey || 'no-subgroup'} className="mb-8">
+                                    <div id={`${category}-${groupKey}-${subgroupKey}`} key={subgroupKey} className="mb-8">
                                         {subgroupKey && Array.from(subgroupMap.keys()).indexOf(subgroupKey) > 0 && (
                                             <hr className="my-6 border-t border-gray-200" />
                                         )}
@@ -179,6 +182,7 @@ export default function BlogsPage() {
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                             {groupBlogs.map(blog => (
                                                 <a 
+                                                    id={blog.slugSanitized}
                                                     key={blog.slug} 
                                                     href={`/blogs/${category}/${blog.slugSanitized}`}
                                                     className="col-span-full block p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"

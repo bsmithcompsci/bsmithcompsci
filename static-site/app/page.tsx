@@ -10,6 +10,52 @@ import Image from "next/image";
 import { FaEnvelope, FaGithub, FaGlobe, FaLink, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+class TimeSpan {
+  years: number;
+  months: number
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+
+  constructor(start: Date, end: Date) {
+    let delta = Math.abs(end.getTime() - start.getTime()) / 1000;
+
+    this.years = Math.floor(delta / 31536000);
+    delta -= this.years * 31536000;
+
+    this.months = Math.floor(delta / 2592000);
+    delta -= this.months * 2592000;
+
+    this.days = Math.floor(delta / 86400);
+    delta -= this.days * 86400;
+
+    this.hours = Math.floor(delta / 3600) % 24;
+    delta -= this.hours * 3600;
+
+    this.minutes = Math.floor(delta / 60) % 60;
+    delta -= this.minutes * 60;
+
+    this.seconds = Math.floor(delta % 60);
+  }
+
+  toString(): string {
+    const parts: string[] = [];
+    if (this.years > 0) parts.push(`${this.years} ${this.years === 1 ? "year" : "years"}`);
+    if (this.months > 0) parts.push(`${this.months} ${this.months === 1 ? "month" : "months"}`);
+    if (this.days > 0) parts.push(`${this.days} ${this.days === 1 ? "day" : "days"}`);
+    if (this.hours > 0) parts.push(`${this.hours} ${this.hours === 1 ? "hour" : "hours"}`);
+    if (this.minutes > 0) parts.push(`${this.minutes} ${this.minutes === 1 ? "minute" : "minutes"}`);
+    if (this.seconds > 0) parts.push(`${this.seconds} ${this.seconds === 1 ? "second" : "seconds"}`);
+    
+    if (parts.length > 2) {
+      return parts.slice(0, 2).join(", ");
+    }
+    
+    return parts.join(", ");
+  }
+}
+
 export default function Home() {
   const profileData = readProfileData();
   const skills = Object.keys(profileData.about_me.skills);
@@ -22,6 +68,24 @@ export default function Home() {
     6: "grid-cols-1 md:grid-cols-3 lg:grid-cols-6",
   };
   const bio_markdown: string = profileData.about_me.markdown.join("\n\n");
+  const years_of_experience_companys: Record<string, TimeSpan> = {};
+  
+  const start_of_career = new Date(profileData.work_experience.reduce((earliest, experience) => {
+    const experienceStartDate = new Date(experience.start_date);
+    return experienceStartDate < earliest ? experienceStartDate : earliest;
+  }, new Date()));
+
+  const last_recorded_experience = new Date(profileData.work_experience.reduce((latest, experience) => {
+    const experienceEndDate = experience.end_date ? new Date(experience.end_date) : new Date();
+    return experienceEndDate > latest ? experienceEndDate : latest;
+  }, new Date(0)));
+  const total_years_of_experience = new TimeSpan(start_of_career, last_recorded_experience);
+  profileData.work_experience.forEach((experience: ProfileWorkExperienceData) => {
+    const startDate = new Date(experience.start_date);
+    const endDate = experience.end_date ? new Date(experience.end_date) : new Date();
+    const timeSpan = new TimeSpan(startDate, endDate);
+    years_of_experience_companys[experience.company] = timeSpan;
+  });
 
   return (
     <main className="min-h-screen">
@@ -45,7 +109,7 @@ export default function Home() {
             <div className="mt-6">
               <div
                 className={
-                  `grid gap-2` +
+                  `grid gap-2 ` +
                   (skillsGridCols[skills.length] || "grid-cols-1")
                 }
               >
@@ -131,6 +195,15 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
           Experience & Projects
         </h2>
+        {/* Total Years of Experience */}
+        <div className="mb-6 text-gray-700">
+          <p className="text-lg">
+            Total Years of Experience:{" "}
+            <span className="font-semibold">
+              {total_years_of_experience.toString()}
+            </span>
+          </p>
+        </div>
         {/* Pills with Counters of various Industry Projects */}
         <div className="mb-8 flex flex-wrap gap-3">
           {Object.entries(profileData.project_types_counter).map(
@@ -215,6 +288,8 @@ export default function Home() {
                           { month: "short", year: "numeric" }
                         )
                       : "Present"}
+                      {" "}
+                      ({years_of_experience_companys[experience.company].toString()})
                   </p>
                   {experience.description && (
                     <p className="text-gray-600 mb-4">
@@ -289,7 +364,7 @@ export default function Home() {
                                             month: "short",
                                             year: "numeric",
                                           })
-                                        : "Present"}
+                                        : "Present"} ({new TimeSpan(new Date(job.start_date), job.end_date ? new Date(job.end_date) : new Date()).toString()})
                                     </p>
                                     <p className="text-sm text-gray-700 mb-2">
                                       {job.description}
