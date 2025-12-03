@@ -1,0 +1,265 @@
+{
+    "about_me": {
+        "profile_picture": "/profile/20250802_084532.jpg",
+        "markdown": [
+            "# Hi, I'm Brandon Smith! 👋",
+            "I'm a **DevOps and Software Engineer** specializing in automation and eliminating development friction. I transform complex challenges into streamlined solutions that empower teams to innovate and deliver faster.",
+            "_Here's a snapshot of my skills and experience. Feel free to explore my work and get in touch!_"
+        ],
+        "socials": {
+            "linkedin": "https://www.linkedin.com/in/brandon-smith-compsci/",
+            "github": "https://github.com/brandon-smith",
+            "twitter": "https://twitter.com/bsmith_compsci",
+            "mailto": "mailto:bsmithcompsci+portfolio@gmail.com"
+        },
+        "skills": {
+            "Programming Languages": [
+                "Python",
+                "JavaScript/TypeScript",
+                "Go",
+                "Bash/Shell Scripting",
+                "Java",
+                "C#"
+            ],
+            "DevOps & Cloud": [
+                "AWS",
+                "GCP",
+                "Docker",
+                "Kubernetes",
+                "Terraform",
+                "CI/CD Pipelines",
+                "Jenkins",
+                "GitHub Actions",
+                "Gitlab CI",
+                "ArgoCD",
+                "Ansible",
+                "Microservices Architecture"
+            ],
+            "Game Development": [
+                "Unity",
+                "Godot"
+            ],
+            "Databases": [
+                "PostgreSQL",
+                "MySQL",
+                "MongoDB",
+                "Redis",
+                "GraphQL"
+            ],
+            "Monitoring & Logging": [
+                "Prometheus",
+                "Grafana",
+                "ELK Stack"
+            ],
+            "Other Tools & Technologies": [
+                "Linux/Unix",
+                "RESTful APIs",
+                "Agile/Scrum",
+                "Git",
+                "JIRA",
+                "Confluence",
+                "Figma"
+            ]
+        }
+    },
+    "project_types_counter": {
+        "Games": [
+            "Project Campsite",
+            "Mirandus",
+            "Tavern Games",
+            "Bardic: Quest for Love",
+            "Telegram Train Tapper Game",
+            "0n1 Tapper Game"
+        ],
+        "Technology": [
+            "VitalXP Game Engine"
+        ]
+    },
+    "work_experience": [
+        {
+            "company": "Campsite Games",
+            "href": "https://campsitegames.com/",
+            "start_date": "2025-01-02",
+            "end_date": null,
+            "icon_logo": "/logos/campsitegames-logo.webp",
+            "description": "Campsite Games is an indie game studio focused on creating immersive and innovative gaming experiences across various platforms.",
+            "projects": [
+                {
+                    "name": "Project Campsite",
+                    "type": "Project",
+                    "href": "/blogs/projects/12",
+                    "jobs": [
+                        {
+                            "title": "Chief Technology Officer | Founder",
+                            "employment_type": "full-time",
+                            "start_date": "2025-01-02",
+                            "end_date": null,
+                            "description": "Leading the technology strategy and development for Campsite Games, overseeing all technical aspects of game development and infrastructure.",
+                            "responsibilities": [
+                                "Define and implement the technical vision for the company, aligning with business goals and market trends.",
+                                "Oversee the development of game engines, tools, and pipelines to ensure efficient production workflows.",
+                                "Manage a team of engineers and collaborate with designers and artists to deliver high-quality gaming experiences."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Gala Games",
+            "href": "https://games.gala.com/",
+            "start_date": "2022-06-01",
+            "end_date": "2024-12-02",
+            "icon_logo": "/logos/gala-games-logo.webp",
+            "description": "Gala Games is a blockchain gaming platform focused on creating player-owned gaming experiences.",
+            "projects": [
+                {
+                    "name": "Core Team",
+                    "type": "Team",
+                    "href": "/blogs/projects/6",
+                    "jobs": [
+                        {
+                            "title": "DevOps Engineer",
+                            "employment_type": "full-time",
+                            "start_date": "2024-05-01",
+                            "end_date": "2024-12-02",
+                            "description": "Automating the deployment and management of Gala Games' node infrastructure to ensure reliability and scalability.",
+                            "responsibilities": [
+                                "Developed infrastructure-as-code solutions using Terraform and Ansible to automate node deployments.",
+                                "Implemented monitoring and alerting systems to maintain high availability of node services.",
+                                "Collaborated with development teams to streamline CI/CD pipelines for faster feature releases."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Mirandus & Tavern Games",
+                    "type": "Project",
+                    "href": "/blogs/projects/8",
+                    "jobs": [
+                        {
+                            "title": "DevOps Engineer",
+                            "employment_type": "full-time",
+                            "start_date": "2024-05-01",
+                            "end_date": "2024-12-02",
+                            "description": "Supported the Mirandus game development team by managing cloud infrastructure and deployment pipelines.",
+                            "responsibilities": [
+                                "Maintained and optimized cloud infrastructure on AWS to support game development and testing environments.",
+                                "Automated deployment processes to facilitate rapid iteration and testing of game builds.",
+                                "Worked closely with developers to ensure smooth integration of new features into the live environment."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Breadwork Games",
+            "href": "https://www.breadworkgames.com/",
+            "start_date": "2023-07-01",
+            "end_date": "2024-05-01",
+            "icon_logo": "/logos/breadwork-games-logo.png",
+            "description": "Breadwork Games is an indie game studio focused on creating innovative and engaging gaming experiences across multiple platforms.",
+            "projects": [
+                {
+                    "name": "Bardic: Quest for Love",
+                    "type": "Project",
+                    "href": "/blogs/projects/9",
+                    "jobs": [
+                        {
+                            "title": "Lead Software Engineer",
+                            "employment_type": "volunteer",
+                            "start_date": "2023-07-01",
+                            "end_date": "2024-05-01",
+                            "description": "Led the software engineering efforts for Bardic: Quest for Love, a narrative-driven RPG that combines storytelling with strategic gameplay.",
+                            "responsibilities": [
+                                "Architected and implemented core game systems using Unity and C#, ensuring a smooth and engaging player experience.",
+                                "Coordinated with artists and designers to integrate assets and mechanics that enhanced the game's narrative and visual appeal.",
+                                "Optimized game performance across multiple platforms, including PC and consoles, to reach a wider audience."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Immutable.AI",
+            "href": "https://www.linkedin.com/company/immu-ai/",
+            "start_date": "2022-01-01",
+            "end_date": "2024-06-01",
+            "icon_logo": "/logos/immu-ai-logo.webp",
+            "description": "Immutable.AI focused on gamifying AI data labeling and developing engaging Telegram-based games.",
+            "projects": [
+                {
+                    "name": "Telegram Train Tapper Game",
+                    "type": "Project",
+                    "description": "Contract game development for interactive tapper games on the Telegram platform.",
+                    "href": "/blogs/projects/3",
+                    "jobs": [
+                        {
+                            "title": "Game Developer",
+                            "employment_type": "contract",
+                            "start_date": "2022-01-01",
+                            "end_date": "2023-06-01",
+                            "description": "Developed engaging tapper games for the Telegram platform, focusing on user engagement and viral mechanics.",
+                            "responsibilities": [
+                                "Built interactive game mechanics optimized for mobile web experiences within Telegram.",
+                                "Implemented real-time leaderboards and social features to drive user engagement.",
+                                "Optimized game performance for various mobile devices and network conditions."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "0n1 Tapper Game",
+                    "type": "Project",
+                    "description": "A tapper game designed to engage users with the 0n1 NFT community on Telegram.",
+                    "href": "/blogs/projects/4",
+                    "jobs": [
+                        {
+                            "title": "Game Developer",
+                            "employment_type": "contract",
+                            "start_date": "2023-07-01",
+                            "end_date": "2024-06-01",
+                            "description": "Created a tapper game that integrated with the 0n1 NFT community, enhancing user interaction and retention.",
+                            "responsibilities": [
+                                "Designed game mechanics that rewarded players with NFT-related incentives.",
+                                "Integrated blockchain elements to allow users to showcase their NFTs within the game.",
+                                "Collaborated with the 0n1 community to gather feedback and iterate on game features."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "VitalXP",
+            "href": "https://www.linkedin.com/company/vitalxp",
+            "start_date": "2022-01-01",
+            "end_date": "2023-06-01",
+            "icon_logo": "/logos/vitalxp-logo.webp",
+            "description": "VitalXP was developing a proprietary game engine built from the ground up, designed specifically for VR and Stadia platforms to deliver next-generation gaming experiences.",
+            "projects": [
+                {
+                    "name": "VitalXP Game Engine",
+                    "type": "Project",
+                    "href": "/blogs/projects/2",
+                    "jobs": [
+                        {
+                            "title": "Software Engineer",
+                            "employment_type": "full-time",
+                            "start_date": "2022-01-01",
+                            "end_date": "2023-06-01",
+                            "description": "Contributed to the development of a cutting-edge game engine tailored for VR and cloud gaming platforms, focusing on performance optimization and seamless user experiences.",
+                            "responsibilities": [
+                                "Developed core engine features using C++ and Rust, ensuring high performance and low latency for VR applications.",
+                                "Collaborated with cross-functional teams to integrate cloud gaming capabilities, optimizing for Google Stadia's architecture.",
+                                "Implemented advanced rendering techniques to enhance visual fidelity in immersive environments."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

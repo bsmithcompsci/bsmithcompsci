@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/dist/client/link";
+import Dropdown from "@/components/dropdown";
+import { CgMail } from "react-icons/cg";
+import { getBlogCategories } from "./blogs/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,11 +26,44 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const blogCategories = getBlogCategories();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Navbar */}
+        <nav className="bg-white shadow-md sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <Link href="/" className="text-xl font-bold text-gray-900">Brandon Smith</Link>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Dropdown trigger={<span className="text-gray-700 hover:text-gray-900 cursor-pointer">Blog</span>}>
+                  {/* Dropdown items */}
+                  {blogCategories.map((category) => (
+                    <Link
+                      key={category}
+                      href={`/blogs/#${category}`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </Link>
+                  ))}
+                </Dropdown>
+                <Link href="/#contact" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                  <CgMail className="inline mr-2" />
+                  Contact Me
+                </Link>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        {/* Main content */}
         {children}
       </body>
     </html>
